@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="CSS/stylesheet.css">
+   <link href="https://fonts.googleapis.com/css?family=Monofett|Indie+Flower" rel="stylesheet">
+	<script type="text/javascript" src="JS/Pasapalabra.js"></script>
+   <script type="text/javascript" src="JS/positioning.js"></script>  
+	<title>Pasapalabra</title>
+</head>
+<body>
+   <div id="intro">
+      <div>
+         <h1 id="title">Pasapalabra</h1>
+         <p>Welcome to the Pasapalabra game, please enter your name and press the button when you are ready to start!</p><br>       
+         <input id="userName" class="textField" type="text" name="name" maxlength="10"/>
+         <input class="myBtn" type="submit" value="Start" ="Start" onclick="guessTheWord()"/>
+      </div>
+   </div>
+   <header id="header"><h1>Pasapalabra</h1></header>
+   <div id="test" class="game">
+      <div id="container" class="circle">
+   		<div id="ref" class="circle"></div>
+   		<div id="a" class="inner circle">A</div>
+   		<div id="b" class="inner circle">B</div>
+   		<div id="c" class="inner circle">C</div>
+   		<div id="d" class="inner circle">D</div>
+   		<div id="e" class="inner circle">E</div>
+      	<div id="f" class="inner circle">F</div>
+      	<div id="g" class="inner circle">G</div>
+   		<div id="h" class="inner circle">H</div>
+   		<div id="i" class="inner circle">I</div>
+   		<div id="j" class="inner circle">J</div>
+   		<div id="k" class="inner circle">K</div>
+   		<div id="l" class="inner circle">L</div>
+   		<div id="m" class="inner circle">M</div>
+   		<div id="n" class="inner circle">N</div>
+   		<div id="ñ" class="inner circle">Ñ</div>
+   		<div id="o" class="inner circle">O</div>
+   		<div id="p" class="inner circle">P</div>
+   		<div id="q" class="inner circle">Q</div>
+   		<div id="r" class="inner circle">R</div>
+   		<div id="s" class="inner circle">S</div>
+   		<div id="t" class="inner circle">T</div>
+   		<div id="u" class="inner circle">U</div>
+   		<div id="v" class="inner circle">V</div>
+   		<div id="w" class="inner circle">W</div>
+   		<div id="x" class="inner circle">X</div>
+   		<div id="y" class="inner circle">Y</div>
+   		<div id="z" class="inner circle">Z</div>
+	   </div>
+   </div>
+   <script type="text/javascript">
+      locateTheCircles();
+   </script>
+   <div id="grid">
+      <div id="topGrid">
+         <div><p id="time"></p></div>
+      </div>
+      <div id="bottomGrid"></div>
+   </div>
+   <div class="game">
+      <div id="userBox">
+         <div><p id="desc"></p></div>
+         <form id="userInput" onsubmit="return false" autocomplete="off">
+            <div id="userText">
+               <input id="userWord" class="textField" type="text" name="word" />
+               <p>Read carefully the sentence displayed above and the Hint, then write your answer and select your option.</p>
+            </div>
+            <div id="userButtons">
+               <input id="okBtn" class="myBtn" type="submit" value="OK" onclick="wordCheck()" /><br>
+               <input id="passBtn" class="myBtn" type="button" value="Pasapalabra" onclick="next()" /><br>
+               <input id="endBtn" class="myBtn" type="button" value="Stop" onclick="stop()"/>
+            </div>
+         </form>
+      </div>
+      <div id="score">
+         <div class="resultTable">
+            <h2>This is your total score:</h2>
+            <p id="result"></p>
+         </div><br>
+         <div class="resultTable">
+            <input class="myBtn" type="button" value="Restart" onclick="initGame()"/>
+            <input class="myBtn" type="button" value="Exit" onclick="location.reload()"/>
+         </div>
+      </div>
+   </div>
+   <audio id="sound01" src="Sounds/claps3.wav"></audio>
+   <audio id="sound02" src="Sounds/crowd-groan.wav"></audio>
+   <script type="text/javascript">
+      var applause = document.getElementById("sound01");
+      applause.volume = 0.2;
+      var groan = document.getElementById("sound02");
+      groan.volume = 0.2;
+      function playApplause() {
+         groan.pause();
+         applause.currentTime = 0;
+         applause.play();
+      }
+      function playGroan() {
+         groan.currentTime = 0;
+         applause.pause();
+         groan.play();
+      }
+   </script>
+</body>
+</html>
